@@ -1,0 +1,49 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jogo da Memória</title>
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}?v=1.2">
+        <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+        <script src="{% static 'js/recursos.js' %}?v=1.1"></script>
+    </head>
+    <body class="padding-zero">
+
+        <header>
+            <h1>Jogo da Memória</h1>
+            <p><a href="{% url 'ranking' %} " class="voltar-link">Ver Ranking</a></p>
+            <p>Tentativas: <strong><span id="numerotttv">0</span></strong></p>
+        </header>
+
+        <div class="background">
+            <div class="painel"></div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div>
+                    <p>Disciplina: <strong>Programação para Internet</strong></p>
+                    <p>Professor: <strong>Marcelo Figueiredo Barbosa Júnior</strong></p>
+                    <p><strong>IFRN - Campus Santa Cruz/RN</strong></p>
+                </div>
+                <div>
+                    <p><strong>Estela Gabriela Santana Costa</strong></p>
+                    <p><strong>Jordy Ariel de Mendonça Magalhães</strong></p>
+                    <p><strong>Joackym Pedro Araujo Coelho</strong></p>
+                </div>    
+            </div>
+            <p>Todos os direitos reservados &copy;</p>
+        </footer>
+
+        <form method="POST" id="formPartida">
+            {% csrf_token %}
+            <input type="hidden" id="nome_jogador" name="nome_jogador" required>
+            <input type="hidden" id="quant_tentativas" name="quant_tentativas" required>
+            <input type="hidden" id="tempo_duracao" name="tempo_duracao">
+            {% comment %} <button type="submit">Salvar Partida</button> {% endcomment %}
+        </form>    
+
+    </body>
+    </html>

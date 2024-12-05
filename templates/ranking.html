@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estiloRanking.css' %}?v=1.2">
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <title>Jogo da Memória - Ranking</title>
+</head>
+<body>
+    
+    <header>
+        <h1>Jogo da Memória</h1>
+        <p><a href="{% url 'index' %}" class="voltar-link">Voltar ao Jogo</a></p>
+    </header>
+
+
+    <div class="container">
+        <section>
+            <table>
+                <h2>Ranking</h2>
+                <thead>
+                    <tr>
+                        <th>Posicão</th>
+                        <th>Nome do Jogador</th>
+                        <th>Tentativas</th>
+                        <th>Tempo de Duração (s)</th>
+                        <th>Data da partida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for partida in partidas_tabela %}
+                    <tr>
+                        <td class='texto-center'>{{ forloop.counter }}&deg;</td>
+                        <td class='texto-center'>{{ partida.nome_jogador }}</td>
+                        <td class='texto-center'>{{ partida.quant_tentativas }}</td>
+                        <td class='texto-center'>{{ partida.tempo_duracao }}</td>
+                        <td>{{ partida.data_hora_partida }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div>
+                <p>Disciplina: <strong>Programação para Internet</strong></p>
+                <p>Professor: <strong>Marcelo Figueiredo Barbosa Júnior</strong></p>
+                <p><strong>IFRN - Campus Santa Cruz/RN</strong></p>
+            </div>
+            <div>
+                <p><strong>Estela Gabriela Santana Costa</strong></p>
+                <p><strong>Jordy Ariel de Mendonça Magalhães</strong></p>
+                <p><strong>Joackym Pedro Araujo Coelho</strong></p>
+            </div>    
+        </div>
+        <p>Todos os direitos reservados &copy;</p>
+    </footer>
+</body>
+</html>

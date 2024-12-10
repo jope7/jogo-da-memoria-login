@@ -1,16 +1,22 @@
 from django.shortcuts import render, redirect
 from .models import Partida
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
+@login_required
 def index(request):
     
     if request.method == "POST":
-        nome_jogador = request.POST.get('nome_jogador')
+        jogador = request.user
+        # nome_jogador = request.POST.get('nome_jogador')
         quant_tentativas = int(request.POST.get('quant_tentativas'))
         tempo_duracao = float(request.POST.get('tempo_duracao'))  
         
         nova_partida = Partida(
-            nome_jogador=nome_jogador, 
+            nome_jogador=jogador, 
             quant_tentativas=quant_tentativas, 
             tempo_duracao=tempo_duracao,
             data_hora_partida=timezone.now()
@@ -27,4 +33,14 @@ def ranking(request):
     
     return render(request, 'ranking.html', {
         'partidas_tabela':partidas_tabela, 
-    })
+    })    
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')  # Redireciona para a página de login após o registro
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})

@@ -17,33 +17,11 @@
         <p>Tentativas: <strong><span id="numerotttv">0</span></strong></p>
     </header>
 
-    <div class="container">
-        <section>
-            <table>
-                <h2>Ranking</h2>
-                <thead>
-                    <tr>
-                        <th>Posicão</th>
-                        <th>Nome do Jogador</th>
-                        <th>Tentativas</th>
-                        <th>Tempo de Duração (s)</th>
-                        <th>Data da partida</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for partida in partidas_tabela %}
-                    <tr>
-                        <td class='texto-center'>{{ forloop.counter }}&deg;</td>
-                        <td class='texto-center'>{{ partida.nome_jogador }}</td>
-                        <td class='texto-center'>{{ partida.quant_tentativas }}</td>
-                        <td class='texto-center'>{{ partida.tempo_duracao }}</td>
-                        <td>{{ partida.data_hora_partida }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </section>
-    </div>
+    {% block content %}
+
+{% comment %} Conteudo {% endcomment %}
+
+    {% endblock %}
 
     <footer>
         <div class="container">

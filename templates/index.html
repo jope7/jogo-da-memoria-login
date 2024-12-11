@@ -7,7 +7,7 @@
     <title>Jogo da Memória</title>
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}?v=1.2">
     <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
-    <script src="{% static 'js/recursos.js' %}?v=1.2"></script>
+    <script src="{% static 'js/recursos.js' %}?v=1.3"></script>
 </head>
 <body class="padding-zero">
 
@@ -40,10 +40,8 @@
 
     <form method="POST" id="formPartida">
         {% csrf_token %}
-        <input type="hidden" id="nome_jogador" name="nome_jogador" required>
-        <input type="hidden" id="quant_tentativas" name="quant_tentativas" required>
+        <input type="hidden" id="quant_tentativas" name="quant_tentativas">
         <input type="hidden" id="tempo_duracao" name="tempo_duracao">
-        {% comment %} <button type="submit">Salvar Partida</button> {% endcomment %}
     </form>    
 
 </body>

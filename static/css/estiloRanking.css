@@ -1,11 +1,11 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    padding: 0px;
+    padding: 0;
     background-color: #f4f4f4;
 }
 
@@ -27,6 +27,23 @@ header p {
     font-size: 1.2em;
 }
 
+a {
+    color: rgb(255, 255, 255); /* Cor padrão do link */
+}
+
+a:hover {
+    color: rgb(78, 78, 78); /* Cor ao passar o mouse */
+}
+
+a:visited {
+    color: rgb(209, 209, 209); /* Cor após o link ser visitado */
+}
+
+a:active {
+    color: rgb(8, 8, 8); /* Cor enquanto o link está sendo clicado */
+}
+
+
 .container {
     display: flex;
     justify-content: center; /* Centraliza as tabelas */
@@ -36,7 +53,7 @@ header p {
 }
 
 section {
-    width: calc(50% - 10px); /* Ajusta a largura das seções para incluir o gap */
+    width: calc(75% - 10px); /* Ajusta a largura das seções para incluir o gap */
     margin: 0;
 }
 
@@ -115,8 +132,9 @@ footer > p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    margin: 0;
 }
 
 .painel img {
@@ -124,19 +142,45 @@ footer > p {
     height: auto; 
 }
 
-@media screen and (max-width: 700px) {
-    .painel {
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between; 
-        width: 100%; 
-        max-width: 400px; 
+a {
+    color: rgb(255, 255, 255); /* Cor padrão do link */
+}
+
+a:hover {
+    color: rgb(78, 78, 78); /* Cor ao passar o mouse */
+}
+
+a:visited {
+    color: rgb(209, 209, 209); /* Cor após o link ser visitado */
+}
+
+a:active {
+    color: rgb(8, 8, 8); /* Cor enquanto o link está sendo clicado */
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
     }
-    
-    .painel img {
-        width: calc(50% - 10px); 
-        margin-bottom: 10px; 
+
+    section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 480px;
     }
 
     footer {

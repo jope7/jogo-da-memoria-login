@@ -73,9 +73,9 @@ $(document).ready(function() {
 
             if (cartasAcertadas.length === cartas.length / 2) {
                 alert("Você encontrou o ultimo par que faltava! Jogo Finalizado!")
-                setTimeout(solicitarNome, 300);
+                setTimeout(terminar, 300);
             } else {
-            alert("Você encontrou uma combinação!");
+                alert("Você encontrou uma combinação!");
             }
             
         } else {
@@ -89,22 +89,12 @@ $(document).ready(function() {
 
     }
 
-    function solicitarNome(){
-        const nomeJogador = prompt("Por favor, insira seu nome:")
-
-        if (nomeJogador){
-            $('#nome_jogador').val(nomeJogador);
-            $('#quant_tentativas').val(tentativas);
-
-            const tempoFim = new Date();
-            const tempoDuracao = (tempoFim - tempoInicio) / 1000;
-            $('#tempo_duracao').val(tempoDuracao);
-
-            $('#formPartida').submit();
-        } else {
-            alert("Você precisa inserir um nome para salvar a partida!")
-        }
-
+    function terminar(){
+        $('#quant_tentativas').val(tentativas);
+        const tempoFim = new Date();
+        const tempoDuracao = (tempoFim - tempoInicio) / 1000;
+        $('#tempo_duracao').val(tempoDuracao);
+        $('#formPartida').submit();
     }
 
     criarPainel();

@@ -31,6 +31,22 @@ header p {
     font-size: 1.2em;
 }
 
+a {
+    color: rgb(255, 255, 255); /* Cor padrão do link */
+}
+
+a:hover {
+    color: rgb(78, 78, 78); /* Cor ao passar o mouse */
+}
+
+a:visited {
+    color: rgb(209, 209, 209); /* Cor após o link ser visitado */
+}
+
+a:active {
+    color: rgb(8, 8, 8); /* Cor enquanto o link está sendo clicado */
+}
+
 .container {
     display: flex;
     margin: auto;
@@ -67,6 +83,11 @@ footer > p {
 .painel img {
     max-width: 100%;
     height: auto; 
+}
+
+img:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 700px) {

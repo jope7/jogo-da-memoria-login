@@ -65,7 +65,7 @@ $(document).ready(function() {
         if (opcao1_id == opcao2_id) {
             cartas.eq(opcao1_id).attr("src", baseUrl + "carta0.png");
             cartas.eq(opcao2_id).attr("src", baseUrl + "carta0.png");
-            // alert("Você clicou na mesma imagem!");
+            alert("Você clicou na mesma imagem!");
         } else if (cartasEscolhidas[0] === cartasEscolhidas[1]) {
             cartas.eq(opcao1_id).off("click", girarCarta);
             cartas.eq(opcao2_id).off("click", girarCarta);
@@ -73,39 +73,20 @@ $(document).ready(function() {
 
             if (cartasAcertadas.length === cartas.length / 2) {
                 // alert("Você encontrou o ultimo par que faltava! Jogo Finalizado!")
-                // setTimeout(solicitarNome, 300);
             } else {
-            //alert("Você encontrou uma combinação!");
+                // alert("Você encontrou uma combinação!");
             }
             
         } else {
             cartas.eq(opcao1_id).attr("src", baseUrl + "carta0.png");
             cartas.eq(opcao2_id).attr("src", baseUrl + "carta0.png");
-            //alert("Não formou par!");
+            // alert("Não formou par!");
         }
 
         cartasEscolhidas = [];
         cartasEscolhidasId = [];
 
     }
-
-    // function solicitarNome(){
-    //     const nomeJogador = prompt("Por favor, insira seu nome:")
-
-    //     if (nomeJogador){
-    //         $('#nome_jogador').val(nomeJogador);
-    //         $('#quant_tentativas').val(tentativas);
-
-    //         const tempoFim = new Date();
-    //         const tempoDuracao = (tempoFim - tempoInicio) / 1000;
-    //         $('#tempo_duracao').val(tempoDuracao);
-
-    //         $('#formPartida').submit();
-    //     } else {
-    //         alert("Você precisa inserir um nome para salvar a partida!")
-    //     }
-
-    // }
 
     criarPainel();
 

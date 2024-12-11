@@ -31,6 +31,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_URL = '/admin/'
+LOGIN_REDIRECT_URL = '/ranking/'
+LOGOUT_REDIRECT_URL = "/"
 
 # Application definition
 
@@ -133,5 +136,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'  # Página após login bem-sucedido

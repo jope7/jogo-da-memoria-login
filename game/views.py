@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
+def menu(request):
+    return render(request, 'menu.html')
+
 @login_required
 def index(request):
     
@@ -34,13 +37,3 @@ def ranking(request):
     return render(request, 'ranking.html', {
         'partidas_tabela':partidas_tabela, 
     })    
-
-def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('login')  # Redireciona para a página de login após o registro
-    else:
-        form = UserCreationForm()
-    return render(request, 'registration/register.html', {'form': form})

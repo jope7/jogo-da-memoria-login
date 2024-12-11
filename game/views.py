@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Partida
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -9,9 +10,8 @@ from django.contrib import messages
 def menu(request):
     return render(request, 'menu.html')
 
-@login_required
+@login_required(login_url='/login/')
 def index(request):
-    
     if request.method == "POST":
         jogador = request.user
         # nome_jogador = request.POST.get('nome_jogador')
@@ -37,3 +37,8 @@ def ranking(request):
     return render(request, 'ranking.html', {
         'partidas_tabela':partidas_tabela, 
     })    
+    
+def login_redirect(request):
+    if request.user.is_authenticated:
+        return redirect('/game/')
+    return redirect('/admin/')
